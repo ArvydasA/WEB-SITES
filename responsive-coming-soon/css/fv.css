@@ -1,0 +1,59 @@
+
+
+/* Tooltips helpers */
+.rcsp_item .tooltip{ float:left; top:2px; left:7px; position:relative; z-index:2; }
+.rcsp_item .tooltip:hover{ z-index:3; }
+   .rcsp_item .tooltip > span{ display:inline-block; width:15px; height:15px; line-height:15px; font-size:0.9em; font-weight:bold; text-align:center; color:#FFF; cursor:help; background-color:#00AEEF; position:relative; border-radius:10px; }
+    .rcsp_item .tooltip .content{ opacity:0; width:200px; background-color:#333; color:#FFF; font-size:0.9em; position:absolute; top:0; left:20px; padding:8px; border-radius:6px; pointer-events:none; transition:0.2s cubic-bezier(0.1, 0.1, 0.25, 2); -webkit-transition:0.3s cubic-bezier(0.1, 0.2, 0.5, 2.2); -moz-transition:0.3s cubic-bezier(0.1, 0.2, 0.5, 2.2); }
+        .rcsp_item .tooltip p{ padding:0; }
+   .rcsp_item .tooltip.down .content{ left:auto; right:0; top:30px; }
+   .rcsp_item .tooltip:hover .content{ opacity:1; left:36px; }
+      .rcsp_item .tooltip .content b{ height:0; width:0; border-color:#333 #333 transparent transparent; border-style:solid; border-width:9px 7px; position:absolute; left:-14px; top:8px; }
+        .rcsp_item .tooltip.down .content b{ left:auto; right:6px; top:-10px; border-width:5px; border-color:transparent #333 #333 transparent; }
+
+/* alerts (when validation fails) */
+.rcsp_item .alert{ float:left; margin:0 0 0 20px; padding:3px 10px; color:#FFF; border-radius:3px 4px 4px 3px; background-color:#CE5454; width:auto;  position:relative; left:-15px; opacity:0; z-index:1; transition:0.15s ease-out; }
+.rcsp_item .alert::after{ content:''; display:block; height:0; width:0; border-color:transparent #CE5454 transparent transparent; border-style:solid; border-width:11px 7px; position:absolute; left:-13px; top:1px; }
+.rcsp_item.bad .alert{ left:0; opacity:1; }
+
+
+@keyframes shake{
+    15%{ transform:translateX(-5px); }
+    30%{ transform:translateX(5px); }
+	45%{ transform:translateX(-3px); }
+	60%{ transform:translateX(3px); }
+	75%{ transform:translateX(2px); }
+	100%{ transform:none; }
+}
+@-webkit-keyframes shake{
+    25%{ -webkit-transform:translateX(-6px); }
+    75%{ -webkit-transform:translateX(6px); }
+}
+
+form fieldset{ clear:both; margin:0 0 10px 0; }
+form .rcsp_item{ padding:5px 0; position:relative; height:2em; }
+form .rcsp_item.rcsp_items{ height:auto; }
+	.rcsp_item label, .rcsp_item .label{ float:left; cursor:pointer; }
+		.rcsp_item label span, .rcsp_item .label{ float:left; width:160px; text-transform:capitalize; line-height:2em; }
+	.rcsp_item input, .rcsp_item textarea{ float:left; padding:3px 4px; width:210px; -webkit-transition:0.2s; -moz-transition:0.2s; transition:0.2s; }
+	.rcsp_item input[type=checkbox]{ width:auto; }
+	
+	.label ~ label{ vertical-align:middle; margin:0.3em 1.2em 0 0; } 
+	
+	.rcsp_item input.short{ width:90px; }
+	.rcsp_item input:focus:not([type="checkbox"]), .rcsp_item textarea:focus{ box-shadow:0 0 4px #00AEEF; border:1px solid #00AEEF; }
+	.rcsp_item textarea{  }
+	.rcsp_item select{ float:left; width:220px; padding:2px 0; margin:0; border:1px solid #CCC; text-transform:capitalize; }
+		.rcsp_item select option{ padding:1px; }
+
+    .rcsp_item > .extra{ float:left; font-size:0.9em; color:#999; line-height:2em; margin-left:13px; }
+    
+	.rcsp_item.multi .input{ float:left; }
+		.rcsp_item.multi input{ float:left; margin-right:5px; width:35px; text-align:center; }
+		form .rcsp_item.multi input:nth-last-child(-n+2){ margin:0; }
+	.rcsp_item.rcsp_items input{ border-top:5px solid #E1E1E1; margin:0 0 0 160px; }
+	
+	.bad input, 
+	.bad select, 
+	.bad textarea{ border:1px solid #CE5454; box-shadow:0 0 4px -2px #CE5454; position:relative; left:0; -moz-animation:.7s 1 shake linear; -webkit-animation:0.7s 1 shake linear; }
+    
